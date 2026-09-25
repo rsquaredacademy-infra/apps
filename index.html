@@ -1,353 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Rsquared Academy Shiny Apps">
-    <meta name="author" content="Rsquared Academy">
-    <link rel="canonical" href="https://apps.rsquaredacademy.com/" />
-    <title>Shiny Apps | Rsquared Academy</title>
-    <meta property="og:url" content="https://apps.rsquaredacademy.com/"/>
-    <meta property="og:title" content="Shiny Apps | Rsquared Academy"/>
-    <meta property="og:site_name" content="apps.rsquaredacademy.com"/>
-    <meta property="og:description" content="Shiny apps developed by Rsquared Academy for interactive data analysis."/>
-    <meta property="og:image" content="https://pkgs.rsquaredacademy.com/images/hex_stickers.png"/>
-    <meta property="og:image:height" content="219"/>
-    <meta property="og:image:width" content="220"/>
-    <meta name="keywords" content="aravind hebbali, rsquared academy, rfm shiny app, rfm package, olsrr shiny app, olsrr package, descriptr shiny app, descriptr package, inferr shiny app, inferr package, blorr shiny app, blorr package, shiny apps, R, xplorerr, investorr, packages" />
-    <meta name="description" content="Shiny apps developed by Rsquared Academy for interactive data analysis." />
-    <meta name="referrer" content="no-referrer">
-    <meta name="twitter:title" content="Shiny Apps | Rsquared Academy" />
-    <meta name="twitter:description" content="Shiny apps developed by Rsquared Academy for interactive data analysis." />
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:site" content="@rsquaredacademy" />
-    <meta name="twitter:image" content="https://pkgs.rsquaredacademy.com/images/hex_stickers.png" />
-    <meta name="twitter:image:width" content="300" />
-    <meta name="twitter:image:height" content="300" />
-    <meta name="twitter:creator" content="@rsquaredacademy" />
-    <meta name="twitter:domain" content="pkgs.rsquaredacademy.com" />
-    
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/heroic-features.css" rel="stylesheet">
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Interactive Apps | Rsquared Academy</title>
+  <meta name="description" content="Rsquared Academy interactive apps have moved from cloud hosting to local R via the xplorerr package. Browser versions (webR/shinylive) are coming soon on individual package sites.">
+  <link rel="canonical" href="https://apps.rsquaredacademy.com/">
+  <meta property="og:url" content="https://apps.rsquaredacademy.com/">
+  <meta property="og:title" content="Interactive Apps | Rsquared Academy">
+  <meta property="og:site_name" content="apps.rsquaredacademy.com">
+  <meta property="og:description" content="Run Rsquared Academy apps locally with xplorerr. Browser versions via webR/shinylive are coming soon on package sites.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@rsquaredacademy">
+  <meta name="twitter:title" content="Interactive Apps | Rsquared Academy">
+  <meta name="twitter:description" content="Run Rsquared Academy apps locally with xplorerr. Browser versions coming soon on package sites.">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+  <style>
+    :root { --brand: #007ba7; --text: #333; --muted: #666; --border: #e2e2e2; --bg: #f7fafc; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; color: var(--text); line-height: 1.6; }
+    header { background: var(--brand); color: #fff; padding: 12px 20px; }
+    header a { color: #fff; margin-right: 16px; text-decoration: none; font-size: 14px; }
+    header strong { margin-right: 24px; }
+    main { max-width: 860px; margin: 0 auto; padding: 32px 20px 60px; }
+    .notice { background: #fff8e1; border: 1px solid #f0d27a; border-radius: 8px; padding: 16px 18px; margin: 24px 0; }
+    .card { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 18px; margin: 16px 0; }
+    pre { background: #1e1e1e; color: #e8e8e8; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 14px; }
+    code.inline { background: #eee; padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 15px; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    th { font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    .pill { display: inline-block; font-size: 12px; background: #eee; border-radius: 20px; padding: 2px 10px; color: var(--muted); }
+    footer { text-align: center; color: var(--muted); font-size: 14px; padding: 30px 20px; border-top: 1px solid var(--border); }
+    footer a { color: var(--brand); }
+    h1 { color: var(--brand); margin-bottom: 0; }
+    h2 { color: var(--brand); margin-top: 36px; }
+    a { color: var(--brand); }
+  </style>
 </head>
-
 <body>
+  <header>
+    <strong>Rsquared Academy</strong>
+    <a href="https://www.rsquaredacademy.com/">Home</a>
+    <a href="https://pkgs.rsquaredacademy.com/">R Packages</a>
+    <a href="https://blog.rsquaredacademy.com/">Blog</a>
+    <a href="https://ebooks.rsquaredacademy.com/">e-books</a>
+  </header>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Rsquared Academy</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="https://www.rsquaredacademy.com/" target="_blank">Home</a>
-                    </li>
-                    <li>
-                        <a href="https://rsquared-academy.thinkific.com/" target="_blank">Courses</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" data-toggle="dropdown" class="dropdown-toggle">Resources <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="https://blog.rsquaredacademy.com/" target="_blank">Blog</a>
-                            </li>
-                            <li>
-                                <a href="https://pkgs.rsquaredacademy.com/" target="_blank">R Packages</a>
-                            </li>
-                            <li>
-                                <a href="https://ebooks.rsquaredacademy.com/" target="_blank">e-books</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                <!-- social media icons -->
-                <ul class="nav navbar-nav navbar-right social">
-                    <li><a href="https://github.com/rsquaredacademy" target="_blank"><i class="fa fa-lg fa-github"></i></a></li>
-                    <li><a href="https://twitter.com/rsquaredacademy" target="_blank"><i class="fa fa-lg fa-twitter"></i></a></li>
-                    <li><a href="https://www.youtube.com/user/rsquaredin/" target="_blank"><i class="fa fa-lg fa-youtube"></i></a></li>
-                    <li><a href="https://in.linkedin.com/company/rsquared-academy" target="_blank"><i class="fa fa-lg fa-linkedin"></i></a></li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
+  <main>
+    <h1>Interactive Apps</h1>
+    <p>Directory for Rsquared Academy interactive apps for data analysis, visualization, and modeling.</p>
 
-    <!-- Page Content -->
-    <div class="container">
-
-        <!-- Jumbotron Header -->
-        <!--  <header class="jumbotron hero-spacer"> -->
-            <div class = "row text-center"> 
-
-              <div class="col-md-6 col-sm-9">
-                <br>
-                <br>
-                <br>
-                <h3 style="color:#007ba7;">Explore..Discover..Learn</h3>
-                <p class="text-justify">Explore data using a simple interface. Generate descriptive statistics, 
-                  understand distributions, build visualizations step by step, perform 
-                  parametric/non-paramaetric tests and customer segmentation, and build linear and logistic
-              regression models.</p>
-          </div>
-
-          <div class="col-md-6 col-sm-9">            
-            <p>
-              <img src="images/hex_stickers.png" alt="" width="400px">
-          </p>
-      </div>
-  </div>
-  <!--- </header> -->
-
-  <hr>
-
-  <div class="row text-center">
-    <div class="col-lg-12">
-        <h3 style="color: #007ba7;">Accelerate your learning with our interactive apps.</h3>
+    <div class="notice">
+      <strong>Cloud hosting retired.</strong>
+      Apps previously hosted on <code class="inline">rsquaredcomputing.com</code> are no longer available in the browser.
+      There is currently no browser version. Run apps locally with R (below), or wait for
+      browser versions via webR/shinylive on individual package sites.
     </div>
-</div>
 
-<br>
+    <h2>Run locally today with xplorerr</h2>
+    <div class="card">
+      <p style="margin-top:0">Install once, then launch any app from R:</p>
+      <pre>install.packages("xplorerr")
 
-<div class="row text-center">
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_trial.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">olsrr</h5>
-            <p class="card-text text-justify">Build linear regression models using the olsrr package. Quickly iterate through
-        models and generate models with the click of a button.</p>
-            <a href="https://www.rsquaredcomputing.com/shiny/olsrr/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
+xplorerr::app_descriptive()        # descriptive statistics
+xplorerr::app_vistributions()      # probability distributions
+xplorerr::app_inference()          # hypothesis testing
+xplorerr::app_linear_regression()  # linear regression
+xplorerr::app_logistic_regression()# logistic regression
+xplorerr::app_rfm_analysis()       # RFM / customer segmentation
+xplorerr::app_visualizer()         # data visualization</pre>
+      <p style="margin-bottom:0">Docs: <a href="https://xplorerr.rsquaredacademy.com/">xplorerr.rsquaredacademy.com</a>
+        &middot; CRAN: <a href="https://cloud.r-project.org/package=xplorerr">xplorerr</a>
+        &middot; Source: <a href="https://github.com/rsquaredacademy/xplorerr">GitHub</a></p>
     </div>
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_blorr.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">blorr</h5>
-            <p class="card-text text-justify">Build, validate and monitor binary logistic regression models. Includes comprehensive
-        regression output, model fit and validation statistics.</p>
-            <a href="https://www.rsquaredcomputing.com/shiny/blorr/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
+
+    <h2>App directory</h2>
+    <p>Browser apps will be published on the relevant package site when ready. This domain will link out rather than host apps.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>App</th>
+          <th>Run locally</th>
+          <th>Docs</th>
+          <th>Browser</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>descriptr</strong><br><span class="pill">descriptive stats</span></td>
+          <td><code class="inline">app_descriptive()</code></td>
+          <td><a href="https://descriptr.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>vistributions</strong><br><span class="pill">distributions</span></td>
+          <td><code class="inline">app_vistributions()</code></td>
+          <td><a href="https://vistributions.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>inferr</strong><br><span class="pill">hypothesis testing</span></td>
+          <td><code class="inline">app_inference()</code></td>
+          <td><a href="https://inferr.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>olsrr</strong><br><span class="pill">linear regression</span></td>
+          <td><code class="inline">app_linear_regression()</code></td>
+          <td><a href="https://olsrr.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>blorr</strong><br><span class="pill">logistic regression</span></td>
+          <td><code class="inline">app_logistic_regression()</code></td>
+          <td><a href="https://blorr.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>rfm</strong><br><span class="pill">segmentation</span></td>
+          <td><code class="inline">app_rfm_analysis()</code></td>
+          <td><a href="https://rfm.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+        <tr>
+          <td><strong>xplorerr</strong><br><span class="pill">all apps + visualizer</span></td>
+          <td><code class="inline">app_visualizer()</code> + all above</td>
+          <td><a href="https://xplorerr.rsquaredacademy.com/">docs</a></td>
+          <td><span class="pill">coming soon on package site</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>What's next</h2>
+    <div class="card">
+      <p style="margin-top:0">We plan browser-based apps using webR/shinylive in the coming months. They will be hosted
+        on the relevant package sites (for example, the regression app on the olsrr site), not on this domain.
+        This page will become a directory linking to those browser apps when they ship.</p>
+      <p style="margin-bottom:0">All packages: <a href="https://pkgs.rsquaredacademy.com/">pkgs.rsquaredacademy.com</a></p>
     </div>
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_descriptr.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">descriptr</h5>
-            <p class="card-text text-justify">Generate and visualize descriptive statistics for numeric/categorical data.</p>
-            <br>
-            <a href="https://www.rsquaredcomputing.com/shiny/descriptr/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
-    </div>
-</div>
+  </main>
 
-<br>
-<br>
-
-<div class="row text-center">
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_inferr.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">inferr</h5>
-            <p class="card-text text-justify">Beginner friendly interface to perform hypothesis testing using parametric and non-parametric statistical test. Includes flexible input options and structured results.</p>
-            <a href="https://www.rsquaredcomputing.com/shiny/inferr/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_rfm.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">rfm</h5>
-            <p class="card-text text-justify">Tools for customer segmentation using recency, frequency and monetary value analysis. Build customized segments using customer or transaction level data.</p>
-            <a href="https://www.rsquaredcomputing.com/shiny/rfm/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
-    </div>
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_xplorerr.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">xplorerr</h5>
-            <p class="card-text text-justify">Apps for data visualization, exploratory data analysis, hypothesis testing, customer segmentation, linear and logistic regression modeling.</p>
-            <a href="https://www.rsquaredcomputing.com/shiny/xplorerr/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
-    </div>
-</div>
-
-<br>
-<br>
-
-<div class="row text-center">
-    <div class="col-md-4 col-sm-9">
-        <div class="card">
-          <img class="card-img-top" src="images/hex_vistributions.png" height = '150px' alt="Card image cap">
-          <div class="card-body">
-            <h5 class="card-title">vistributions</h5>
-            <p class="card-text text-center">Visualize probability distributions.</p>
-            <br>
-            <br>
-            <a href="https://www.rsquaredcomputing.com/shiny/vistributions/" target="_blank" class="btn btn-primary">Launch App</a>
-          </div>
-        </div>
-    </div>
-</div>
-
-<br>
-
-<hr>
-
-<div class="row text-center">
-    <h2 style="color: #007ba7;">Built With</h2>
-</div>
-
-<br>
-<br>
-
-<div class="row text-center">
-    <div class="col-md-6 col-sm-9">
-        <a href="https://shiny.rstudio.com/" target="_blank"><img src="images/shiny.png" alt="" width = '300px' height = '200px'></a>
-    </div>
-    <div class="col-md-6 col-sm-9">
-        <a href="https://www.rstudio.com/" target="_blank"><img src="images/rstudio.png" alt="" width = '360px' height = '150px'></a>
-    </div>
-</div>
-
-<hr>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Simple Interface</h2>
-        <p>Simple interface for uploading data. As a tool aimed at beginners, all you need to do is to upload your data in a comma or tab separated file and get going with your analysis.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208786227" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Transform Data</h2>
-        <p>Screen data for missing values, rename variables and modify data types.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208786721" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Exploratory Data Analysis</h2>
-        <p>Generate detailed summary statistics, one and two way tables, group summaries and visualize the same.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208787963" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Understand Statistical Distributions</h2>
-        <p>Vizually explore the most important statistical distributions. Understand the factors which influence their shapes. Learn to calculate the probability and quantiles.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208788108" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Visualize Data</h2>
-        <p>Visualize data by interactively building plots step by step.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208788291" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Inferential Statistics</h2>
-        <p>Test hypothesis using a set of most important parametric and non-parametric tests.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208788340" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<div class="row text-center">
-    <div class="col-lg-2"></div>
-    <div class="col-lg-8">
-        <h2 style="color: #007ba7;">Model Building & Validation</h2>
-        <p>Build and evaluate statistical models using a simple workflow.</p>
-        <br>
-        <iframe src="https://player.vimeo.com/video/208788402" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-    </div>
-</div>
-
-<br>
-
-<!-- Footer -->
-<footer>
-    <div class="row text-center">
-        <div class="col-lg-12">
-            <p>Copyright &copy; <a href="https://www.rsquaredacademy.com" target="_blank">Rsquared Academy</a> 2014-2022</p>
-        </div>
-    </div>
-</footer>
-
-</div>
-<!-- /.container -->
-
-<!-- jQuery -->
-<script src="js/jquery.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="js/bootstrap.min.js"></script>
-
+  <footer>
+    <p>Copyright &copy; <a href="https://www.rsquaredacademy.com">Rsquared Academy</a> 2014-2026</p>
+  </footer>
 </body>
-
 </html>

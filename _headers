@@ -1,4 +1,7 @@
 /*
   X-Frame-Options: DENY
-  X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cache-Control: public, max-age=3600
+  # NOTE: future shinylive apps will live on package sites, not here.
+  # Those sites (not this hub) will need COOP/COEP + wasm-unsafe-eval CSP.
