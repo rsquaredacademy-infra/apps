@@ -5,3 +5,6 @@
   Cache-Control: public, max-age=3600
   # NOTE: future shinylive apps will live on package sites, not here.
   # Those sites (not this hub) will need COOP/COEP + wasm-unsafe-eval CSP.
+
+/site-kit/*
+  Cache-Control: public, max-age=86400
